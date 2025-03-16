@@ -85,7 +85,7 @@ function seleccionar(){
 /*Compramos las entradas seleccionadas y se actualiza el array de localidades vendidas 
 por sala */
 function confirmarVenta(){
-    if (butacaSel>0){         
+    if (butacaSel>0 && butacaSel<6){         
         switch(sala){
             case "1":
                 aVendidas1=vendidas.slice(0,vendidas.length)
@@ -102,8 +102,10 @@ function confirmarVenta(){
         imprimirTicket()
 
     }  
-    else{
+    else if (butacaSel===0){
         alert("No ha seccionado ninguna localidad")
+    }else if (butacaSel>5){
+        alert("Ha excedido el máximo de butacas para comprar (Max 5 butacas)")
     }
 }
 /*Mostramos el ticket de compra con la fecha, película, localidades y precio */
